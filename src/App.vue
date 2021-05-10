@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <Header @searchedText="updateSearch" />
-        <Main :films="filmsArray" />
+        <Main :films="filmsArray.concat(seriesArray)" />
     </div>
 </template>
 
@@ -18,6 +18,7 @@ export default {
     },
     data() {
         return {
+            seriesArray: [],
             filmsArray: [],
             filmsAPI: "https://api.themoviedb.org/3/search/movie",
             seriesAPI: "https://api.themoviedb.org/3/search/tv",
@@ -51,8 +52,7 @@ export default {
                     },
                 })
                 .then((res) => {
-                    this.filmsArray = res.data.results;
-                    console.log(this.filmsArray);
+                    this.seriesArray = res.data.results;
                 })
                 .catch((err) => {
                     console.log(err);
