@@ -22,7 +22,23 @@
                     alt=""
                 />
             </li>
-            <li>Voto: {{ info.vote_average }}</li>
+            <li>
+                Voto:
+                <span
+                    v-for="(star, index) in Math.ceil(info.vote_average / 2)"
+                    :key="index"
+                >
+                    <i class="fa fa-star"></i
+                ></span>
+                <!-- <span
+                    v-for="(star, index) in Math.ceil(
+                        6 - info.vote_average / 2
+                    )"
+                    :key="index"
+                >
+                    <i class="fa fa-star"></i
+                ></span> -->
+            </li>
             <li>
                 <img
                     :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`"
@@ -42,10 +58,19 @@ export default {
             flagsArray: ["en", "it"],
         };
     },
+    methods: {
+        getStars(vote) {
+            // Convert vote
+            let stars = Math.round(vote / 2);
+            console.log(stars);
+        },
+    },
 };
 </script>
 
 <style scoped lang="scss">
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css";
+
 .card {
     width: 300px;
     margin-right: 50px;
