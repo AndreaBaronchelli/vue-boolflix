@@ -13,7 +13,7 @@
             <li v-if="!flagsArray.includes(info.original_language)">
                 Lingua Originale: {{ info.original_language }}
             </li>
-            <li v-else>
+            <li class="language" v-else>
                 <span>Lingua Originale:</span>
                 <img
                     :src="
@@ -23,6 +23,12 @@
                 />
             </li>
             <li>Voto: {{ info.vote_average }}</li>
+            <li>
+                <img
+                    :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`"
+                    alt=""
+                />
+            </li>
         </ul>
     </div>
 </template>
@@ -44,9 +50,13 @@ export default {
     width: 300px;
     margin-right: 50px;
     margin-bottom: 50px;
+    .language {
+        img {
+            width: 20px;
+        }
+    }
     img {
-        width: 20px;
-        margin-left: 5px;
+        max-width: 250px;
     }
 }
 </style>
