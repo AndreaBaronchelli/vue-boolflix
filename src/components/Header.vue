@@ -14,7 +14,7 @@
             />
             <button
                 type="submit"
-                @click.prevent="$emit('searchText', searchText)"
+                @click.prevent="$emit('searchedText', searchText)"
             >
                 Cerca
             </button>

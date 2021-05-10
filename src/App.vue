@@ -1,7 +1,7 @@
 <template>
     <div id="app">
-        <Header />
-        <Main />
+        <Header @searchedText="updateSearch" />
+        <Main :searchData="searchText" />
     </div>
 </template>
 
@@ -20,7 +20,11 @@ export default {
             searchText: "",
         };
     },
-    methods: {},
+    methods: {
+        updateSearch(data) {
+            this.searchText = data;
+        },
+    },
 };
 </script>
 
