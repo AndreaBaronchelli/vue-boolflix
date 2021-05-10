@@ -22,7 +22,6 @@ export default {
             filmsAPI: "https://api.themoviedb.org/3/search/movie",
         };
     },
-    computed: {},
     methods: {
         updateSearch(text) {
             axios
@@ -41,24 +40,6 @@ export default {
                     console.log(err);
                 });
         },
-
-        //     getFilms() {
-        //         // API Call
-        //         axios
-        //             .get(this.filmsAPI, {
-        //                 params: {
-        //                     api_key: "d1e4e847879a0dc2e8ffcc9d9faf5a8f",
-        //                     query: this.searchText,
-        //                     language: "it-IT",
-        //                 },
-        //             })
-        //             .then((res) => {
-        //                 this.filmsArray = res.data.results;
-        //             })
-        //             .catch((err) => {
-        //                 console.log(err);
-        //             });
-        //     },
     },
 };
 </script>

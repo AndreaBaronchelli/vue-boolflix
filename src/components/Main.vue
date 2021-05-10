@@ -1,6 +1,6 @@
 <template>
     <main class="container">
-        <Card v-for="item in filteredArray" :key="item.id" :info="item" />
+        <Card v-for="item in films" :key="item.id" :info="item" />
     </main>
 </template>
 
@@ -14,16 +14,8 @@ export default {
     },
     props: ["films"],
     data() {
-        return {
-            filmsArray: this.films,
-        };
+        return {};
     },
-    computed: {
-        filteredArray() {
-            return this.filmsArray;
-        },
-    },
-    methods: {},
 };
 </script>
 
