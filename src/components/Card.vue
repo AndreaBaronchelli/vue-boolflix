@@ -1,8 +1,15 @@
 <template>
     <div class="card">
         <ul>
-            <li>Titolo: {{ info.title }}</li>
-            <li>Titolo Originale: {{ info.original_title }}</li>
+            <li>Titolo: {{ info.title == null ? info.name : info.title }}</li>
+            <li>
+                Titolo Originale:
+                {{
+                    info.original_title == null
+                        ? info.original_name
+                        : info.original_title
+                }}
+            </li>
             <li v-if="!flagsArray.includes(info.original_language)">
                 Lingua Originale: {{ info.original_language }}
             </li>

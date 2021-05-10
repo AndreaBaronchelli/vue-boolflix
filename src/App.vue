@@ -20,12 +20,30 @@ export default {
         return {
             filmsArray: [],
             filmsAPI: "https://api.themoviedb.org/3/search/movie",
+            seriesAPI: "https://api.themoviedb.org/3/search/tv",
         };
     },
     methods: {
         updateSearch(text) {
+            // API CALL FILMS
             axios
                 .get(this.filmsAPI, {
+                    params: {
+                        api_key: "d1e4e847879a0dc2e8ffcc9d9faf5a8f",
+                        query: text,
+                        language: "it-IT",
+                    },
+                })
+                .then((res) => {
+                    this.filmsArray = res.data.results;
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+
+            // API CALL SERIES
+            axios
+                .get(this.seriesAPI, {
                     params: {
                         api_key: "d1e4e847879a0dc2e8ffcc9d9faf5a8f",
                         query: text,
