@@ -10,7 +10,7 @@
             <input
                 type="text"
                 placeholder="Cerca i tuoi film e serie tv preferite..."
-                v-model="searchText"
+                v-model.trim="searchText"
             />
             <button
                 type="submit"

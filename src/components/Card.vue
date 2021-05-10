@@ -25,19 +25,17 @@
             <li>
                 Voto:
                 <span
-                    v-for="(star, index) in Math.ceil(info.vote_average / 2)"
-                    :key="index"
+                    v-for="(star, i) in Math.ceil(info.vote_average / 2)"
+                    :key="i"
+                >
+                    <i class="fa fa-star full"></i
+                ></span>
+                <span
+                    v-for="(star, ind) in 5 - Math.ceil(info.vote_average / 2)"
+                    :key="ind"
                 >
                     <i class="fa fa-star"></i
                 ></span>
-                <!-- <span
-                    v-for="(star, index) in Math.ceil(
-                        6 - info.vote_average / 2
-                    )"
-                    :key="index"
-                >
-                    <i class="fa fa-star"></i
-                ></span> -->
             </li>
             <li>
                 <img
@@ -82,6 +80,13 @@ export default {
     }
     img {
         max-width: 250px;
+    }
+    i {
+        border: 1 solid #000;
+        color: #ccc;
+    }
+    .full {
+        color: darkgoldenrod;
     }
 }
 </style>
