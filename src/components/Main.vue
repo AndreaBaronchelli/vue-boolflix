@@ -1,7 +1,6 @@
 <template>
     <main class="container">
-        <Card v-for="item in filmsArray" :key="item.id" :info="item" />
-        <button @click="test">test</button>
+        <Card v-for="item in filteredArray" :key="item.id" :info="item" />
     </main>
 </template>
 
@@ -18,6 +17,11 @@ export default {
         return {
             filmsArray: this.films,
         };
+    },
+    computed: {
+        filteredArray() {
+            return this.filmsArray;
+        },
     },
     methods: {},
 };
