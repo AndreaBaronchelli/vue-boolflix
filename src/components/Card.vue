@@ -59,13 +59,6 @@ export default {
             flagsArray: ["en", "it"],
         };
     },
-    methods: {
-        getStars(vote) {
-            // Convert vote
-            let stars = Math.round(vote / 2);
-            console.log(stars);
-        },
-    },
 };
 </script>
 
