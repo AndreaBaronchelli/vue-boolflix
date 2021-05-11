@@ -11,7 +11,7 @@
                 {{ info.title == null ? info.name : info.title }}
             </li>
             <li>
-                Titolo Originale:
+                <strong>Titolo Originale:</strong>
                 {{
                     info.original_title == null
                         ? info.original_name
@@ -78,6 +78,7 @@ export default {
     height: 500px;
     margin-right: 50px;
     margin-bottom: 50px;
+    overflow: hidden;
     cursor: pointer;
     .poster {
         position: absolute;

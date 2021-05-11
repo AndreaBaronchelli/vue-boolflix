@@ -17,7 +17,7 @@
                     type="submit"
                     @click.prevent="$emit('searchedText', searchText)"
                 >
-                    Cerca
+                    CERCA
                 </button>
             </form>
         </div>
@@ -37,7 +37,7 @@ export default {
 
 <style scoped lang="scss">
 @import "@/styles/utilities";
-
+@import "../styles/vars";
 header {
     z-index: 2;
     position: fixed;
@@ -56,8 +56,20 @@ header {
         width: 40%;
         display: flex;
         input {
+            outline: none;
             flex-grow: 1;
             margin-right: 20px;
+            height: 40px;
+            padding: 0.5rem;
+        }
+        button {
+            height: 40px;
+            padding: 0 2rem;
+            border: 1px solid transparent;
+            border-radius: 10px;
+            color: $text-color;
+            background-color: $brand-color;
+            cursor: pointer;
         }
     }
 }
