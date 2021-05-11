@@ -2,10 +2,12 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img
-                    src="../assets/img/0b68cfd2bef3757aeb2259bad9581728.png"
-                    alt="BaronFlix Logo"
-                />
+                <a href="#">
+                    <img
+                        src="../assets/img/0b68cfd2bef3757aeb2259bad9581728.png"
+                        alt="BaronFlix Logo"
+                    />
+                </a>
             </div>
             <form>
                 <input

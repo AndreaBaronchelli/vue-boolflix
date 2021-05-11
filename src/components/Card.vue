@@ -39,8 +39,8 @@
                     <i class="fa fa-star full"></i
                 ></span>
                 <span
-                    v-for="(star, ind) in 5 - Math.ceil(info.vote_average / 2)"
-                    :key="ind"
+                    v-for="(star, i) in 5 - Math.ceil(info.vote_average / 2)"
+                    :key="'A' + i"
                 >
                     <i class="fa fa-star"></i
                 ></span>
