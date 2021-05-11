@@ -45,7 +45,7 @@
                     <i class="fa fa-star"></i
                 ></span>
             </li>
-            <li><strong>Info: </strong>{{ info.overview }}</li>
+            <li class="overview"><strong>Info: </strong>{{ info.overview }}</li>
         </ul>
     </div>
 </template>
@@ -99,6 +99,12 @@ export default {
     }
     li {
         margin-bottom: 1rem;
+        i {
+            margin-left: 5px;
+        }
+        .full {
+            color: rgb(214, 190, 80);
+        }
     }
     .language {
         img {
@@ -106,11 +112,11 @@ export default {
             margin-left: 5px;
         }
     }
-    i {
-        margin-left: 5px;
-    }
-    .full {
-        color: rgb(214, 190, 80);
+    .overview {
+        max-height: 10rem;
+        margin-bottom: 1rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
 // LAYOVER
