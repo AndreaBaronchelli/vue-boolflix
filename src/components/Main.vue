@@ -25,5 +25,6 @@ export default {
 main {
     display: flex;
     flex-wrap: wrap;
+    padding-top: 100px;
 }
 </style>

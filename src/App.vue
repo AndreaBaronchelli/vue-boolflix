@@ -22,7 +22,23 @@ export default {
             filmsArray: [],
             filmsAPI: "https://api.themoviedb.org/3/search/movie",
             seriesAPI: "https://api.themoviedb.org/3/search/tv",
+            trandingAPI: "https://api.themoviedb.org/3/trending/all/week",
         };
+    },
+    created() {
+        // GET TRANDING FILMS
+        axios
+            .get(this.trandingAPI, {
+                params: {
+                    api_key: "d1e4e847879a0dc2e8ffcc9d9faf5a8f",
+                },
+            })
+            .then((res) => {
+                this.filmsArray = res.data.results;
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     },
     methods: {
         updateSearch(text) {
@@ -64,4 +80,7 @@ export default {
 
 <style lang="scss">
 @import "@/styles/general";
+#app {
+    background-color: #1d1d1d;
+}
 </style>
