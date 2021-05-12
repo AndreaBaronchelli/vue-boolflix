@@ -9,14 +9,12 @@
                     />
                 </a>
             </div>
-            <form>
-                <input
-                    type="text"
-                    placeholder="Cerca i tuoi film e serie tv preferite..."
-                    v-model.trim="searchText"
-                    @keyup="$emit('searchedText', searchText)"
-                />
-            </form>
+            <input
+                type="text"
+                placeholder="Cerca i tuoi film e serie tv preferite..."
+                v-model.trim="searchText"
+                @keyup="$emit('searchedText', searchText)"
+            />
         </div>
     </header>
 </template>
@@ -49,25 +47,14 @@ header {
     img {
         height: 70px;
     }
-    form {
-        width: 40%;
-        display: flex;
-        input {
-            outline: none;
-            flex-grow: 1;
-            margin-right: 20px;
-            height: 40px;
-            padding: 0.5rem;
-        }
-        button {
-            height: 40px;
-            padding: 0 2rem;
-            border: 1px solid transparent;
-            border-radius: 10px;
-            color: $text-color;
-            background-color: $brand-color;
-            cursor: pointer;
-        }
+    input {
+        outline: none;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        width: 400px;
+        height: 40px;
+        padding: 0.5rem;
+        background-color: #1d1d1d;
     }
 }
 </style>
