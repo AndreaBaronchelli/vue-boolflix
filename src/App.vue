@@ -1,28 +1,42 @@
 <template>
     <div id="app">
         <Header @searchedText="updateSearch" />
-        <Main :films="filmsArray.concat(seriesArray)" />
+
+        <section class="Home" v-if="searchText == ''">
+            <Home :tranding="trandigArray" />
+        </section>
+
+        <section class="search" v-else>
+            <Search
+                :films="filmsArray.concat(seriesArray)"
+                :searchText="searchText"
+            />
+        </section>
     </div>
 </template>
 
 <script>
 import axios from "axios";
 import Header from "@/components/Header.vue";
-import Main from "@/components/Main.vue";
+import Search from "@/components/Search.vue";
+import Home from "@/components/Home.vue";
 
 export default {
     name: "App",
     components: {
         Header,
-        Main,
+        Search,
+        Home,
     },
     data() {
         return {
             seriesArray: [],
             filmsArray: [],
+            trandigArray: [],
             filmsAPI: "https://api.themoviedb.org/3/search/movie",
             seriesAPI: "https://api.themoviedb.org/3/search/tv",
             trandingAPI: "https://api.themoviedb.org/3/trending/all/week",
+            searchText: "",
         };
     },
     created() {
@@ -34,7 +48,7 @@ export default {
                 },
             })
             .then((res) => {
-                this.filmsArray = res.data.results;
+                this.trandigArray = res.data.results;
             })
             .catch((err) => {
                 console.log(err);
@@ -42,6 +56,10 @@ export default {
     },
     methods: {
         updateSearch(text) {
+            // Update searchtext
+            this.searchText = text;
+
+            // Reset Search
             if (text == "") {
                 axios
                     .get(this.trandingAPI, {
@@ -56,6 +74,7 @@ export default {
                         console.log(err);
                     });
             }
+
             // API CALL FILMS
             axios
                 .get(this.filmsAPI, {
