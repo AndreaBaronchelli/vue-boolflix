@@ -75,8 +75,9 @@ export default {
 
 .card {
     position: relative;
-    width: 340px;
+    min-width: 340px;
     min-height: 500px;
+    margin-right: 5px;
     margin-bottom: 20px;
     overflow: hidden;
     cursor: pointer;

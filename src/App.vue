@@ -3,7 +3,11 @@
         <Header @searchedText="updateSearch" />
 
         <section class="Home" v-if="searchText == ''">
-            <Home :tranding="trandigArray" />
+            <Home
+                :tranding="trandigFilmArray"
+                :trandingTV="trandigTvArray"
+                :discover="discoverArray"
+            />
         </section>
 
         <section class="search" v-else>
@@ -32,23 +36,56 @@ export default {
         return {
             seriesArray: [],
             filmsArray: [],
-            trandigArray: [],
+            trandigFilmArray: [],
+            trandigTvArray: [],
+            discoverArray: [],
             filmsAPI: "https://api.themoviedb.org/3/search/movie",
             seriesAPI: "https://api.themoviedb.org/3/search/tv",
-            trandingAPI: "https://api.themoviedb.org/3/trending/all/week",
+            trandingMoviesAPI:
+                "https://api.themoviedb.org/3/trending/movies/week",
+            trandingTVAPI: "https://api.themoviedb.org/3/trending/tv/week",
+            discoverAPI: "https://api.themoviedb.org/3/discover/movie",
             searchText: "",
         };
     },
     created() {
         // GET TRANDING FILMS
         axios
-            .get(this.trandingAPI, {
+            .get(this.trandingMoviesAPI, {
                 params: {
                     api_key: "d1e4e847879a0dc2e8ffcc9d9faf5a8f",
                 },
             })
             .then((res) => {
-                this.trandigArray = res.data.results;
+                this.trandigFilmArray = res.data.results;
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+        // GET TRANDING TV SHOWS
+        axios
+            .get(this.trandingTVAPI, {
+                params: {
+                    api_key: "d1e4e847879a0dc2e8ffcc9d9faf5a8f",
+                },
+            })
+            .then((res) => {
+                this.trandigTvArray = res.data.results;
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+        // GET DISCOVER NEW MOVIES
+        axios
+            .get(this.discoverAPI, {
+                params: {
+                    api_key: "d1e4e847879a0dc2e8ffcc9d9faf5a8f",
+                },
+            })
+            .then((res) => {
+                this.discoverArray = res.data.results;
             })
             .catch((err) => {
                 console.log(err);

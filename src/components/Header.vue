@@ -14,13 +14,8 @@
                     type="text"
                     placeholder="Cerca i tuoi film e serie tv preferite..."
                     v-model.trim="searchText"
+                    @keyup="$emit('searchedText', searchText)"
                 />
-                <button
-                    type="submit"
-                    @click.prevent="$emit('searchedText', searchText)"
-                >
-                    CERCA
-                </button>
             </form>
         </div>
     </header>

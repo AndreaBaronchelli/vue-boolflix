@@ -1,9 +1,21 @@
 <template>
     <main class="container">
         <section>
-            <h2>TRENDING FILMS OF THE WEEK</h2>
+            <h2>Bests Movies of the Week</h2>
             <div class="cards">
                 <Card v-for="item in tranding" :key="item.id" :info="item" />
+            </div>
+        </section>
+        <section>
+            <h2>Bests TV Shows the Week</h2>
+            <div class="cards">
+                <Card v-for="item in trandingTV" :key="item.id" :info="item" />
+            </div>
+        </section>
+        <section>
+            <h2>Discover New Movies</h2>
+            <div class="cards">
+                <Card v-for="item in discover" :key="item.id" :info="item" />
             </div>
         </section>
     </main>
@@ -18,6 +30,8 @@ export default {
     },
     props: {
         tranding: Array,
+        trandingTV: Array,
+        discover: Array,
     },
 };
 </script>
@@ -28,14 +42,16 @@ export default {
 
 main {
     padding-top: 110px;
-    h2 {
-        margin-bottom: 2rem;
-        color: $brand-color;
-    }
-    .cards {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+    section {
+        margin-bottom: 20px;
+        h2 {
+            margin-bottom: 2rem;
+            color: $text-color;
+        }
+        .cards {
+            display: flex;
+            overflow-x: auto;
+        }
     }
 }
 </style>
