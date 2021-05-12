@@ -42,6 +42,20 @@ export default {
     },
     methods: {
         updateSearch(text) {
+            if (text == "") {
+                axios
+                    .get(this.trandingAPI, {
+                        params: {
+                            api_key: "d1e4e847879a0dc2e8ffcc9d9faf5a8f",
+                        },
+                    })
+                    .then((res) => {
+                        this.filmsArray = res.data.results;
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            }
             // API CALL FILMS
             axios
                 .get(this.filmsAPI, {

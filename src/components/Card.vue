@@ -1,8 +1,15 @@
 <template>
     <div class="card">
         <img
+            v-if="info.poster_path !== null"
             class="poster"
             :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`"
+            alt=""
+        />
+        <img
+            v-else
+            class="poster not-found"
+            src="../assets/img/not_found.png"
             alt=""
         />
         <ul>
@@ -65,19 +72,21 @@ export default {
 <style scoped lang="scss">
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css";
 @import "../styles/vars.scss";
+
 .card {
     position: relative;
     width: 340px;
-    height: 500px;
-    margin-right: 50px;
-    margin-bottom: 50px;
+    min-height: 500px;
+    margin-right: 10px;
+    margin-bottom: 20px;
     overflow: hidden;
     cursor: pointer;
     .poster {
         position: absolute;
         top: 0;
         left: 0;
-        object-fit: contain;
+        height: 100%;
+        width: 100%;
     }
     ul {
         z-index: 1;
@@ -112,6 +121,7 @@ export default {
         text-overflow: ellipsis;
     }
 }
+
 // LAYOVER
 .card::after {
     content: "";
