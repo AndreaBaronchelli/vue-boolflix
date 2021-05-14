@@ -33,6 +33,8 @@ export default {
 <style scoped lang="scss">
 @import "@/styles/utilities";
 @import "../styles/vars";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css";
+
 header {
     z-index: 2;
     position: fixed;
@@ -51,10 +53,15 @@ header {
         outline: none;
         border: 1px solid transparent;
         border-radius: 10px;
-        width: 400px;
+        width: 250px;
         height: 40px;
         padding: 0.5rem;
         background-color: #1d1d1d;
+        transition: width 0.3s;
+    }
+    input:hover,
+    input:focus {
+        width: 400px;
     }
 }
 </style>
