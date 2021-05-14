@@ -56,6 +56,7 @@ header {
         width: 250px;
         height: 40px;
         padding: 0.5rem;
+        color: $text-color;
         background-color: #1d1d1d;
         transition: width 0.3s;
     }
