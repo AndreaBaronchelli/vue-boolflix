@@ -74,6 +74,7 @@ export default {
 @import "../styles/vars.scss";
 
 .card {
+    scroll-snap-align: center;
     position: relative;
     min-width: 340px;
     min-height: 500px;

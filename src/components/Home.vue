@@ -50,7 +50,8 @@ main {
         }
         .cards {
             display: flex;
-            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            overflow-x: scroll;
         }
     }
 }

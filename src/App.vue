@@ -151,6 +151,7 @@ export default {
 <style lang="scss">
 @import "@/styles/general";
 #app {
+    overflow: hidden;
     min-height: 100vh;
     background-color: #1d1d1d;
 }
