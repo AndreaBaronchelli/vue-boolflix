@@ -82,6 +82,9 @@ export default {
     margin-bottom: 20px;
     overflow: hidden;
     cursor: pointer;
+    img {
+        object-fit: cover;
+    }
     .poster {
         position: absolute;
         top: 0;
